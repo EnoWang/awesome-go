@@ -55,10 +55,10 @@ func TestInterBasicInterface(t *testing.T) {
 }
 
 // 1. Digging into implementations for Retriever
-
 func inspect(r Retriever) {
 	fmt.Printf("%T %v\n", r, r)
 	switch v := r.(type) {
+	// Note: use switch to check the type of interface
 	case mockRetriever:
 		fmt.Println("Contents:", v.Contents)
 	case *retriever:
@@ -80,7 +80,7 @@ func TestImplementation(t *testing.T) {
 	inspect(r2)
 }
 
-// 2. Type Assertion
+// 2. Type Assertion: check the type of interface
 func TestTypeAssertion(t *testing.T) {
 	var r Retriever
 	r = &retriever {
@@ -95,4 +95,45 @@ func TestTypeAssertion(t *testing.T) {
 	} else {
 		t.Log("Not a *retriever")
 	}
+}
+
+// 3. interface{}: any type of interface
+type Queue []interface{}
+
+// Note: queue will be able to accept any type of elements
+/*
+func (q *Queue) Push(v interface{}) {
+	*q = append(*q, v)
+}
+
+func (q *Queue) Poll() interface{} {
+	head := (*q)[0]
+	*q = (*q)[1:]
+	return head
+}
+*/
+
+func (q *Queue) Push(v int) {
+	*q = append(*q, v)
+}
+
+func (q *Queue) Poll() int {
+	head := (*q)[0]
+	*q = (*q)[1:]
+	return head.(int)
+}
+
+func (q *Queue) IsEmpty() bool {
+	return len(*q) == 0
+}
+
+func TestQueue(t *testing.T) {
+	q := Queue{1}
+	q.Push(2)
+	q.Push(3)
+	t.Log(q.Poll())
+	t.Log(q.Poll())
+	t.Log(q.IsEmpty())
+	t.Log(q.Poll())
+	t.Log(q.IsEmpty())
 }
