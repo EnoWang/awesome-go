@@ -1,4 +1,4 @@
-package built_in_collections
+package _2_built_in_collections
 
 import "testing"
 
