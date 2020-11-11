@@ -122,7 +122,7 @@ func TestCopy(t *testing.T) {
 
 // 7. delete element in slice
 // use append
-func TestDelete(t *testing.T) {
+func TestDeleteSlice(t *testing.T) {
 	t.Log("Original array")
 	s := []int{2, 4, 6, 8}
 	t.Log(s)
