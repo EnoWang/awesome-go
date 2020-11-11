@@ -1,4 +1,4 @@
-package _3_object_oriented
+package ch3_object_oriented
 
 // 0. goLang uses camel case, Capital letter is public, otherwise is private
 // Every folder has one package

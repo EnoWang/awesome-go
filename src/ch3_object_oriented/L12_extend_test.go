@@ -1,4 +1,4 @@
-package _3_object_oriented
+package ch3_object_oriented
 
 import "testing"
 
