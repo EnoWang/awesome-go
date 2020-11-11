@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-type Retriever interface {
+type ComRetriever interface {
 	Get(url string) (*string, error)
 }
 
@@ -13,7 +13,7 @@ type Poster interface {
 }
 
 type RetrieverPoster interface {
-	Retriever
+	ComRetriever
 	Poster
 }
 
@@ -28,13 +28,6 @@ func (rp *mockRetrieverPoster) Get(url string) (*string, error) {
 func (rp *mockRetrieverPoster) Post(url string, form map[string]string) string {
 	rp.Contents = form["contents"]
 	return "ok"
-}
-
-func post(poster Poster) {
-	poster.Post("http://www.google.com", map[string]string{
-		"name": "golang",
-		"ide":  "goland",
-	})
 }
 
 func session(rp RetrieverPoster) string {
