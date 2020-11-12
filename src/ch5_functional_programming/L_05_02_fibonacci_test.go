@@ -24,6 +24,8 @@ func (g intGen) Read(p []byte) (n int, err error) {
 		return 0, io.EOF
 	}
 	s := fmt.Sprintf("%d\n", next)
+
+	// todo: fix when p is too small
 	return strings.NewReader(s).Read(p)
 }
 
