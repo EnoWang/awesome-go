@@ -128,6 +128,7 @@ func TestDeleteSlice(t *testing.T) {
 	t.Log(s)
 
 	t.Log("Delete element in the middle of slice")
+
 	s1 := append(s[:2], s[3:]...)
 	t.Log(s1)
 

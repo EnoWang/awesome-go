@@ -17,8 +17,8 @@ func TestDefaultValue(t *testing.T) {
 // Note: can declare multiple variables in one statement
 // Note: no values needed
 func TestInitialValue(t *testing.T) {
-	var a, b = 3, 4
-	var s = "abc"
+	var a, b int = 3, 4
+	var s string = "abc"
 	t.Log(a, b, s)
 }
 
@@ -41,10 +41,9 @@ func TestShortDeclaration(t *testing.T) {
 // Note: always need var key word
 // Note: scope: in package
 var (
-	k   = "kk"
+	k = "kk"
 	bol = true
 )
-
 func TestPackageScopeVal(t *testing.T) {
 	t.Log(k, bol)
 }
@@ -55,11 +54,11 @@ func TestPackageScopeVal(t *testing.T) {
 - (u)int, (u)int8, (u)int16, (u)int32, (u)int64, uintptr
 - byte, rune
 - float32, float64, complex64, complex128
-*/
+ */
 
 // 6. data type conversion: need to do it explicitly
 func TestTriangle(t *testing.T) {
 	var a, b = 3, 4
-	var c = int(math.Sqrt(float64(a*a + b*b)))
+	var c int = int(math.Sqrt(float64(a * a + b * b)))
 	t.Log("triangle:", c)
 }

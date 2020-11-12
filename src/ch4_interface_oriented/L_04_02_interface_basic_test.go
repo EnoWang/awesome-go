@@ -25,7 +25,6 @@ type retriever struct {
 	UserAgent string
 	TimeOut   time.Duration
 }
-
 func (r *retriever) Get(url string) (*string, error) {
 	resp, err := http.Get(url)
 	if err != nil {
