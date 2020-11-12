@@ -82,7 +82,6 @@ func TestDeleteMap(t *testing.T) {
 // All built_in types can be key excluding map, slice and function
 // Struct without fields in function, map or function can be key
 
-
 // 6. longest substring without repeating characters
 func getLongestSubstringWithoutRepeatingChars(s string) int {
 	lastOccurred := make(map[byte]int)

@@ -23,8 +23,9 @@ func (r mockRetriever) Get(url string) (*string, error) {
 
 type retriever struct {
 	UserAgent string
-	TimeOut time.Duration
+	TimeOut   time.Duration
 }
+
 func (r *retriever) Get(url string) (*string, error) {
 	resp, err := http.Get(url)
 	if err != nil {
@@ -40,9 +41,8 @@ func (r *retriever) Get(url string) (*string, error) {
 	return &res, nil
 }
 
-
 func download(r Retriever) string {
-	if response, err := r.Get("http://www.google.com"); err != nil{
+	if response, err := r.Get("http://www.google.com"); err != nil {
 		panic(err)
 	} else {
 		return *response
@@ -50,7 +50,7 @@ func download(r Retriever) string {
 }
 
 func TestInterBasicInterface(t *testing.T) {
-	r := &retriever {}
+	r := &retriever{}
 	t.Log(download(r))
 }
 
@@ -72,9 +72,9 @@ func TestImplementation(t *testing.T) {
 	}
 	fmt.Println("----------------- inspection for r1 -----------------------")
 	inspect(r1)
-	r2 := &retriever {
+	r2 := &retriever{
 		UserAgent: "mock",
-		TimeOut: time.Minute,
+		TimeOut:   time.Minute,
 	}
 	fmt.Println("----------------- inspection for r2 -----------------------")
 	inspect(r2)
@@ -83,9 +83,9 @@ func TestImplementation(t *testing.T) {
 // 2. Type Assertion: check the type of interface
 func TestTypeAssertion(t *testing.T) {
 	var r Retriever
-	r = &retriever {
+	r = &retriever{
 		UserAgent: "mock",
-		TimeOut: time.Minute,
+		TimeOut:   time.Minute,
 	}
 
 	// wrong way!

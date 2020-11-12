@@ -22,8 +22,8 @@ func eval(a, b int, op string) int {
 	}
 	return -1
 }
-func TestFunc (t *testing.T) {
-	t.Log(eval(1, 3,"+"))
+func TestFunc(t *testing.T) {
+	t.Log(eval(1, 3, "+"))
 }
 
 // 1. return more than one value
@@ -41,8 +41,8 @@ func TestDiv(t *testing.T) {
 func apply(op func(float64, float64) float64, a, b float64) float64 {
 	p := reflect.ValueOf(op).Pointer()
 	opName := runtime.FuncForPC(p).Name()
-	fmt.Printf("Calling function %s with args " + "(%d, %d)", opName, a , b)
-	return op (a, b)
+	fmt.Printf("Calling function %s with args "+"(%d, %d)", opName, a, b)
+	return op(a, b)
 }
 func TestFunctional(t *testing.T) {
 	res := apply(math.Pow, 2, 3)
@@ -64,4 +64,4 @@ func Test(t *testing.T) {
 // 4. Keep it simple
 /*
    No function override, no default parameter values
- */
+*/

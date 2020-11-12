@@ -124,10 +124,8 @@ func TestTraverseTree(t *testing.T) {
 	root.left = &TreeNode{1, nil, nil}
 	root.right = &TreeNode{5, nil, nil}
 
-	root.right.left =  &TreeNode{4, nil, nil}
+	root.right.left = &TreeNode{4, nil, nil}
 	root.left.right = &TreeNode{2, nil, nil}
 
 	root.traverseTree()
 }
-
-

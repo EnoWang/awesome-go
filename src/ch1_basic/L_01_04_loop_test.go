@@ -9,7 +9,7 @@ import (
 )
 
 // 0. can skip start statement
-func TestConvertToBin (t *testing.T) {
+func TestConvertToBin(t *testing.T) {
 	n := 13
 	result := ""
 	for ; n > 0; n /= 2 {
@@ -20,10 +20,10 @@ func TestConvertToBin (t *testing.T) {
 }
 
 // 1. can skip start statement and increase statement
-func TestReadFile (t *testing.T) {
+func TestReadFile(t *testing.T) {
 	filename := "abc.txt"
 	file, err := os.Open(filename)
-	if  err != nil {
+	if err != nil {
 		panic(err)
 	}
 	scanner := bufio.NewScanner(file)
@@ -34,7 +34,7 @@ func TestReadFile (t *testing.T) {
 
 // 2. can skip all statements
 // Note: GoLang make it easy to write endless loop since goroutine need it
-func TestForever (t *testing.T) {
+func TestForever(t *testing.T) {
 	for {
 		fmt.Println("Hello")
 	}
